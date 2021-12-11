@@ -1,7 +1,6 @@
 package exe.bbllw8.aoc.day4
 
 import scala.io.Source
-import scala.util.Success
 
 private case class Board(numbers: List[List[Int]]):
   private case class Item(val row: Int,
