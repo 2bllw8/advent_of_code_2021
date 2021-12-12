@@ -2,9 +2,9 @@ package exe.bbllw8.aoc.day5
 
 import scala.io.Source
 
-case class Point(val x: Int, val y: Int)
+private case class Point(val x: Int, val y: Int)
 
-case class Line(val start: Point, val end: Point)
+private case class Line(val start: Point, val end: Point)
 
 private def parseInput(path: String): List[Line] =
   Source.fromFile(path)
@@ -18,8 +18,8 @@ private def parseInput(path: String): List[Line] =
       .toList
 
 
-def drawMatrix(matrix: Array[Array[Int]],
-               lines: List[Line]): Unit =
+private def drawMatrix(matrix: Array[Array[Int]],
+                       lines: List[Line]): Unit =
   lines.foreach { line =>
     var x = line.start.x
     var y = line.start.y
@@ -45,7 +45,11 @@ def part1(args: String*): Unit =
   val maxX = lines.map(line => if (line.start.x > line.end.x) line.start.x else line.end.x).max
   val maxY = lines.map(line => if (line.start.y > line.end.y) line.start.y else line.end.y).max
 
-  val matrix = Array.fill(maxY + 1) { Array.fill(maxX + 1) { 0 } }
+  val matrix = Array.fill(maxY + 1) {
+    Array.fill(maxX + 1) {
+      0
+    }
+  }
 
   drawMatrix(matrix, lines)
   println(matrix.map(row => row.map(x => String.format("%1d", x))
