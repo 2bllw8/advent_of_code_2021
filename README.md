@@ -2,6 +2,8 @@
 
 Advent of code 2021 challenges written in Scala 3
 
+Only day 1 to 9, no time to do all of them, unfortunately.
+
 ## Run with
 
 ```shell
